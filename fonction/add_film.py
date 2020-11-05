@@ -1,6 +1,14 @@
 from py2neo import Node
 
-def film(df,graph,useless,var):
+def film_node(df,graph,useless,var):
+
+    '''
+    :param df: le dataframe sur lequel appliquer la fonction
+    :param graph: la variable qui va permettre d'envoyer les nodes
+    :param useless: la liste des colonnes à supprimer
+    :param var: le nom de la colonne où creer les nodes
+    :return: la liste des nodes créés
+    '''
 
     df = df.drop(useless, axis=1)
     Titre = []
@@ -11,7 +19,15 @@ def film(df,graph,useless,var):
         graph.create(titre)
     return Titre
 
-def genre(df,graph,useless,var):
+def genre_node(df,graph,useless,var):
+
+    '''
+    :param df: le dataframe sur lequel appliquer la fonction
+    :param graph: la variable qui va permettre d'envoyer les nodes
+    :param useless: la liste des colonnes à supprimer
+    :param var: le nom de la colonne où creer les nodes
+    :return: la liste des nodes créés
+    '''
 
     df=df.drop(useless, axis=1)
     Genre=[]

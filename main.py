@@ -1,9 +1,9 @@
 import pandas as pd
-from fonction.add_film import film, genre
-from fonction.liaison import liaison
+from fonction.add_film import film_node, genre_node
+from fonction.liaison import creation_liaison
 from py2neo import Graph
 
-pd.set_option("display.max_rows", None, "display.max_columns", None);
+pd.set_option("display.max_rows", None, "display.max_columns", None)
 
 df = pd.read_json("movies_rated_tagged.json")
 
@@ -21,7 +21,6 @@ varg='genre'
 graph = Graph()
 graph.delete_all()
 
-titre=film(df,graph,uselessf,varf)
-genre=genre(df,graph,useless,varg)
-
-liaison(df,useless,titre,genre,graph)
+titre=film_node(df,graph,uselessf,varf)
+genre=genre_node(df,graph,useless,varg)
+creation_liaison(df,useless,titre,genre,graph)
